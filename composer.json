@@ -1,0 +1,24 @@
+{
+    "name": "jsmolinas83/git-deployment",
+    "description": "Simple Git Deployment Class supports Gitlab and Bitbucket",
+    "authors": [
+        {
+            "name": "Joseph Molinas",
+            "email": "joseph_molinas@msn.com"
+        }
+    ],
+
+    "autoload": {
+        "psr-4": {
+            "JMolinas\\GitDeployment\\": "src",
+            "Tests\\": "tests"
+        }
+    },
+    "require": {
+        "symfony/http-foundation": "^3.2",
+        "symfony/process": "^3.2"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.1"
+    }
+}
