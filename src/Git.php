@@ -2,9 +2,10 @@
 namespace JMolinas\GitDeployment;
 
 use Symfony\Component\Process\Process;
+use JMolinas\GitDeployment\Service\GitInterface;
 use Symfony\Component\Process\Exception\ProcessFailedException;
 
-abstract class Git
+class Git
 {
     protected $source;
     protected $binary;
