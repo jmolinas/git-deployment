@@ -55,9 +55,13 @@ abstract class AbstractService
     {
         $git = $this->binary ? new Git($this, $this->binary) : new Git($this);
         $git->pull();
+    }
+
+    public function runComposer()
+    {
         $composer = new Composer;
         if (is_array($this->deployment())) {
-            foreach ($branch['deployment'] as $deploy) {
+            foreach ($this->deployment() as $deploy) {
                 $composer->run($deploy, $this->source());
             }
         } else {
