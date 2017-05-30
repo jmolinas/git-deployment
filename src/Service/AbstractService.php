@@ -4,6 +4,7 @@ namespace JMolinas\GitDeployment\Service;
 
 use JMolinas\GitDeployment\Git;
 use JMolinas\GitDeployment\Composer;
+use Symfony\Component\HttpFoundation\Request;
 
 abstract class AbstractService
 {
@@ -12,6 +13,21 @@ abstract class AbstractService
      * @var array
      */
     protected $branch = [];
+
+    protected $payload;
+
+    protected $binary;
+
+    protected $projects;
+
+    public function __construct(Request $request, array $projects, $binary = '')
+    {
+        $this->payload = json_decode($request->getContent());
+        if (empty($this->payload)) {
+            throw new \Exception('Request payload empty');
+        }
+        $this->projects = $projects;
+    }
 
     /**
      * __call
