@@ -27,7 +27,7 @@ class Git
 
     private function fetch()
     {
-        $command = $this->binary  . ' fetch';
+        $command = $this->binary  . ' fetch --all --tags';
         $process = new Process($command, $this->source);
         $process->run();
         // executes after the command finishes
