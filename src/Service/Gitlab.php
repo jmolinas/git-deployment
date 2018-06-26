@@ -11,7 +11,8 @@ class Gitlab extends AbstractService implements GitInterface
 
     public function project()
     {
-        return  $this->payload->project->name;
+        $project = explode('/', $this->payload->project->path_with_namespace);
+        return  end($project);
     }
 
     public function remote()
